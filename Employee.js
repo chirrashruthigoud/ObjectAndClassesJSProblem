@@ -1,24 +1,24 @@
-// Make sure 400 088 is also
-// valid along with 400088
+/*Validate Email address with a
+regex. The email consists of
+minimum 3 and optional 2 more
+parts with mandatory @ and .
+abc.xyz@bridgelabz.co.in
+Here abc, bridgelabz and co are
+mandatory and the remaining 2
+are optional
+To begin with lets validate the
+mandatory part and start with abc
+
+Email UC 1*/
 
 
 
-function validatePIN(pin) {
-    // Remove any whitespace from the input
-    pin = pin.replace(/\s/g, '');
-  
-    // Check that the input is six digits long
-    if (/^\d{6}$/.test(pin)) {
-      return true;
-    }
-  
-    return false;
-  }
-  
-  // Example usage:
-  console.log(validatePIN('400 088')); // true
-  console.log(validatePIN('400088')); // true
-  console.log(validatePIN('123456')); // true
-  console.log(validatePIN('12345')); // false
-  console.log(validatePIN('1234567')); // false
-  
+const emailRegex = /^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
+
+const email = 'abc.xyz@bridgelabz.co.in';
+
+if (emailRegex.test(email)) {
+  console.log('Email address is valid!');
+} else {
+  console.log('Email address is invalid.');
+}
