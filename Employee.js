@@ -1,19 +1,24 @@
-// Restrict the PIN code from
-// taking alphabets or special
-// characters at the End.
-// Check for 147852B – this
-// should fail
+// Make sure 400 088 is also
+// valid along with 400088
 
 
-function validatePin(pin) {
-    const regex = /^\d{6}(?![A-Za-z!@#$%^&*()_+])$/;
-    return regex.test(pin);
+
+function validatePIN(pin) {
+    // Remove any whitespace from the input
+    pin = pin.replace(/\s/g, '');
+  
+    // Check that the input is six digits long
+    if (/^\d{6}$/.test(pin)) {
+      return true;
+    }
+  
+    return false;
   }
   
-  const pinToValidate = "147852B";
-  if (validatePin(pinToValidate)) {
-    console.log(`${pinToValidate} is valid.`);
-  } else {
-    console.log(`${pinToValidate} is invalid.`);
-  }
+  // Example usage:
+  console.log(validatePIN('400 088')); // true
+  console.log(validatePIN('400088')); // true
+  console.log(validatePIN('123456')); // true
+  console.log(validatePIN('12345')); // false
+  console.log(validatePIN('1234567')); // false
   
