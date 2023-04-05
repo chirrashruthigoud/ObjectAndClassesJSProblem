@@ -1,14 +1,16 @@
-/*The Postal Index Number
-(PIN) or PIN Code is a 6
-digit code of Post Office
-numbering used
-by India Post.
-Create a regex pattern to
-validate PIN code 258963 PIN Code UC 1*/
+/*Restrict the PIN code from
+taking alphabets or special
+characters at the
+beginning.
+Check for B258968 – this
+should fail
+
+PIN Code UC 2*/
 
 
-const pinCode = "369852";
-const pattern = /^(\d{6})$/;
+
+const pinCode = "B258968";
+const pattern = /^(?![^\d])(\d{6})$/;
 
 if (pattern.test(pinCode)) {
   console.log("Valid PIN code");
