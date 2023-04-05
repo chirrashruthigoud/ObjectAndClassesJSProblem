@@ -1,29 +1,19 @@
-// Ensure “.” after bridgelabz
-// and validate the
-// mandatory 3rd part i.e. co
+// Lets handle optional part
+// i.e. xyz in
+// abc.xyz@bridgelabz.co.in
+// NOTE: make sure only
+// following are valid special
+// characters _,+,
+// -,.
+// proceeding to xyz Email UC 4
 
 
-function validateEmail(email) {
-    // add a dot after "bridgelabz" if it doesn't exist
-    if (email.includes('bridgelabz') && !email.includes('.'))
-      email = email.replace('bridgelabz', 'bridgelabz.');
-  
-    // split the email into three parts: local part, domain part, and third part
-    const [localPart, domainPart, thirdPart] = email.split('@')[1].split('.');
-  
-    // check if the third part is "co"
-    if (thirdPart !== 'co')
-      return false;
-  
-    // validate the rest of the email using a regular expression
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
-  
-  // example usage
-  const email1 = 'john.doe@bridgelabz.com.co';
-  const email2 = 'jane.smith@bridgelabz.co';
-  
-  console.log(validateEmail(email1)); // false
-  console.log(validateEmail(email2)); // true
-  
+const email = 'abc.xyz@example.com'; // Replace with your email address
+
+const match = email.match(/^([a-zA-Z0-9._+-]+)@([a-zA-Z0-9-]+\.[a-zA-Z]{2,})$/);
+if (match) {
+  const xyz = match[1].split('.').pop();
+  console.log(xyz); // Outputs "xyz"
+} else {
+  console.log('Invalid email format');
+}
