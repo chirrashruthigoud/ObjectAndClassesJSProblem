@@ -1,19 +1,19 @@
-/*Restrict the PIN code from
-taking alphabets or special
-characters at the
-beginning.
-Check for B258968 – this
-should fail
-
-PIN Code UC 2*/
+// Restrict the PIN code from
+// taking alphabets or special
+// characters at the End.
+// Check for 147852B – this
+// should fail
 
 
-
-const pinCode = "B258968";
-const pattern = /^(?![^\d])(\d{6})$/;
-
-if (pattern.test(pinCode)) {
-  console.log("Valid PIN code");
-} else {
-  console.log("Invalid PIN code");
-}
+function validatePin(pin) {
+    const regex = /^\d{6}(?![A-Za-z!@#$%^&*()_+])$/;
+    return regex.test(pin);
+  }
+  
+  const pinToValidate = "147852B";
+  if (validatePin(pinToValidate)) {
+    console.log(`${pinToValidate} is valid.`);
+  } else {
+    console.log(`${pinToValidate} is invalid.`);
+  }
+  
